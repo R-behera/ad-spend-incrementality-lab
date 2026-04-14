@@ -6,13 +6,12 @@
           <meta name="viewport" content="width=device-width, initial-scale=1">
           <title>Ad Spend Incrementality Lab</title>
           <link rel="stylesheet" href="./styles.css">
-          <style>:root { --accent: #577590; }</style>
         </head>
-        <body>
-          <div class="page">
+        <body class="surface-ink">
+          <div class="page layout-rail eyebrow-solid headline-compact modules-3 hero-align-left">
             <section class="hero">
               <div class="panel hero-copy">
-                <span class="eyebrow">Analytics Application</span>
+                <span class="eyebrow" data-health>Analytics Studio</span>
                 <h1 id="project-title">Ad Spend Incrementality Lab</h1>
                 <p id="project-summary" class="lead">Estimate true lift from spend changes and package clear incrementality reads for marketers.</p>
                 <ul id="project-tags" class="tag-list">
@@ -26,55 +25,88 @@
 <article class='card'><span>Decision Cycle</span><strong>4d</strong><em>-0.5d</em></article>
                 </div>
                 <div class="mini-grid">
-                  <article class='mini-card'><span>Project Type</span><strong>ANALYTICS</strong></article><article class='mini-card'><span>Domain</span><strong>Marketing Science</strong></article><article class='mini-card'><span>Interface</span><strong>FastAPI + Browser UI</strong></article><article class='mini-card'><span>Deployment</span><strong>Docker + CI</strong></article>
+                  <article class='mini-card'><span>Project Type</span><strong>ANALYTICS</strong></article><article class='mini-card'><span>Domain</span><strong>Marketing Science</strong></article><article class='mini-card'><span>Application</span><strong>Analytics Studio</strong></article><article class='mini-card'><span>Deployment</span><strong>Docker + CI</strong></article>
                 </div>
               </div>
             </section>
             <section class="app-grid">
-              <article class="panel module">
-                <div class="module-header">
-                  <span>Application 01</span>
-                  <h2>Opportunity Scoring</h2>
-                  <p>Estimate which operating scenario deserves the next action.</p>
-                </div>
-                <textarea id="score-input"></textarea>
-                <div class="button-row">
-                  <button id="run-score">Run Scoring</button>
-                  <button id="load-defaults" class="secondary" type="button">Reload Defaults</button>
-                </div>
-                <pre id="score-output"></pre>
-              </article>
-              <article class="panel module">
-                <div class="module-header">
-                  <span>Application 02</span>
-                  <h2>Metric Delta Review</h2>
-                  <p>Compare scenario metrics and translate variance into a concise decision note.</p>
-                </div>
-                <textarea id="analyze-input"></textarea>
-                <div class="button-row">
-                  <button id="run-analyze">Run Analysis</button>
-                </div>
-                <pre id="analyze-output"></pre>
-              </article>
-              <article class="panel module">
-                <div class="module-header">
-                  <span>Application 03</span>
-                  <h2>Decision Assistant</h2>
-                  <p>Ask for a recommendation using the embedded project knowledge base.</p>
-                </div>
-                <textarea id="query-input" class="query-input"></textarea>
-                <div class="button-row">
-                  <button id="run-query">Run Query</button>
-                </div>
-                <pre id="query-output"></pre>
-              </article>
+              <article class="panel module js-module span-normal">
+          <div class="module-header">
+            <span>Studio 01</span>
+            <h2>Opportunity Scorecard</h2>
+            <p>Score the current opportunity shape before deciding what to prioritize next.</p>
+          </div>
+          <textarea class="js-input">{
+  &quot;features&quot;: {
+    &quot;current_conversion&quot;: 0.18,
+    &quot;baseline_conversion&quot;: 0.12,
+    &quot;volume&quot;: 1850,
+    &quot;segment&quot;: &quot;paid_users&quot;
+  }
+}</textarea>
+          <div class="button-row">
+            <button class="js-run" data-endpoint="/score" data-input-mode="json">Score Opportunity</button>
+          </div>
+          <pre class="js-output">Opportunity score and top factors will appear here.</pre>
+        </article>
+<article class="panel module js-module span-wide">
+          <div class="module-header">
+            <span>Studio 02</span>
+            <h2>Metric Storyline</h2>
+            <p>Translate KPI movement into a concise summary for product, growth, or finance stakeholders.</p>
+          </div>
+          <textarea class="js-input">{
+  &quot;metrics&quot;: {
+    &quot;acquisition&quot;: 38.8,
+    &quot;activation&quot;: 39.0,
+    &quot;retention&quot;: 51.6,
+    &quot;revenue&quot;: 82.6
+  },
+  &quot;baseline&quot;: {
+    &quot;acquisition&quot;: 35.7,
+    &quot;activation&quot;: 35.88,
+    &quot;retention&quot;: 47.47,
+    &quot;revenue&quot;: 75.99
+  }
+}</textarea>
+          <div class="button-row">
+            <button class="js-run" data-endpoint="/analyze" data-input-mode="json">Summarize Metrics</button>
+          </div>
+          <pre class="js-output">Metric storyline summary will appear here.</pre>
+        </article>
+<article class="panel module js-module span-normal">
+          <div class="module-header">
+            <span>Studio 03</span>
+            <h2>Decision Memo</h2>
+            <p>Generate the next action memo grounded in the project-specific context.</p>
+          </div>
+          <textarea class="js-input">{
+  &quot;prompt&quot;: &quot;Recommend the next best action for Ad Spend Incrementality Lab.&quot;,
+  &quot;features&quot;: {
+    &quot;current_conversion&quot;: 0.18,
+    &quot;baseline_conversion&quot;: 0.12,
+    &quot;volume&quot;: 1850,
+    &quot;segment&quot;: &quot;paid_users&quot;
+  },
+  &quot;metrics&quot;: {
+    &quot;acquisition&quot;: 38.8,
+    &quot;activation&quot;: 39.0,
+    &quot;retention&quot;: 51.6,
+    &quot;revenue&quot;: 82.6
+  }
+}</textarea>
+          <div class="button-row">
+            <button class="js-run" data-endpoint="/recommend" data-input-mode="json">Draft Memo</button>
+          </div>
+          <pre class="js-output">Decision memo will appear here.</pre>
+        </article>
             </section>
             <footer class="footer">
-              <span>Data Science + AI + LLM + RAG Portfolio</span>
+              <span>Marketing Science • ANALYTICS • Analytics Studio</span>
               <span>ad-spend-incrementality-lab</span>
             </footer>
           </div>
-          <script id="bootstrap-data" type="application/json">{"project": {"slug": "ad-spend-incrementality-lab", "title": "Ad Spend Incrementality Lab", "project_type": "analytics", "domain": "Marketing Science", "summary": "Estimate true lift from spend changes and package clear incrementality reads for marketers.", "tags": ["incrementality", "marketing", "causal"]}, "sample_features": {"current_conversion": 0.18, "baseline_conversion": 0.12, "volume": 1850, "segment": "paid_users"}, "sample_metrics": {"acquisition": 38.8, "activation": 39.0, "retention": 51.6, "revenue": 82.6}, "sample_query": "What is the top priority recommendation?", "knowledge_base": ["Ad Spend Incrementality Lab is positioned as a Marketing Science starter that emphasizes fast iteration, clear documentation, and production-friendly interfaces.", "The primary value proposition is: Estimate true lift from spend changes and package clear incrementality reads for marketers.", "Recommended operating model: ship a small API, add observability, validate outputs with stakeholder review, and monitor the top business KPI every week.", "Typical stakeholders include analytics, operations, product, and leadership teams working on incrementality, marketing, causal."], "dashboard_metrics": [{"label": "North Star", "value": "83", "delta": "+7.1%"}, {"label": "Variance", "value": "15%", "delta": "-1.8%"}, {"label": "Decision Cycle", "value": "4d", "delta": "-0.5d"}]}</script>
+          <script id="bootstrap-data" type="application/json">{"project": {"slug": "ad-spend-incrementality-lab", "title": "Ad Spend Incrementality Lab", "project_type": "analytics", "domain": "Marketing Science", "summary": "Estimate true lift from spend changes and package clear incrementality reads for marketers.", "tags": ["incrementality", "marketing", "causal"]}, "app_archetype": "studio", "ui_profile": {"layout": "rail", "surface": "ink", "font_stack": "\"Avenir Next\", \"Segoe UI\", sans-serif", "radius": 25, "shadow": 47, "eyebrow_style": "solid", "module_columns": 3, "hero_align": "left", "headline_mode": "compact"}, "app_modules": [{"label": "Studio 01", "title": "Opportunity Scorecard", "description": "Score the current opportunity shape before deciding what to prioritize next.", "endpoint": "/score", "input_mode": "json", "cta": "Score Opportunity", "prefill": "{\n  \"features\": {\n    \"current_conversion\": 0.18,\n    \"baseline_conversion\": 0.12,\n    \"volume\": 1850,\n    \"segment\": \"paid_users\"\n  }\n}", "hint": "Opportunity score and top factors will appear here.", "span": "normal"}, {"label": "Studio 02", "title": "Metric Storyline", "description": "Translate KPI movement into a concise summary for product, growth, or finance stakeholders.", "endpoint": "/analyze", "input_mode": "json", "cta": "Summarize Metrics", "prefill": "{\n  \"metrics\": {\n    \"acquisition\": 38.8,\n    \"activation\": 39.0,\n    \"retention\": 51.6,\n    \"revenue\": 82.6\n  },\n  \"baseline\": {\n    \"acquisition\": 35.7,\n    \"activation\": 35.88,\n    \"retention\": 47.47,\n    \"revenue\": 75.99\n  }\n}", "hint": "Metric storyline summary will appear here.", "span": "wide"}, {"label": "Studio 03", "title": "Decision Memo", "description": "Generate the next action memo grounded in the project-specific context.", "endpoint": "/recommend", "input_mode": "json", "cta": "Draft Memo", "prefill": "{\n  \"prompt\": \"Recommend the next best action for Ad Spend Incrementality Lab.\",\n  \"features\": {\n    \"current_conversion\": 0.18,\n    \"baseline_conversion\": 0.12,\n    \"volume\": 1850,\n    \"segment\": \"paid_users\"\n  },\n  \"metrics\": {\n    \"acquisition\": 38.8,\n    \"activation\": 39.0,\n    \"retention\": 51.6,\n    \"revenue\": 82.6\n  }\n}", "hint": "Decision memo will appear here.", "span": "normal"}], "sample_features": {"current_conversion": 0.18, "baseline_conversion": 0.12, "volume": 1850, "segment": "paid_users"}, "sample_metrics": {"acquisition": 38.8, "activation": 39.0, "retention": 51.6, "revenue": 82.6}, "knowledge_base": ["Ad Spend Incrementality Lab is positioned as a Marketing Science starter that emphasizes fast iteration, clear documentation, and production-friendly interfaces.", "The primary value proposition is: Estimate true lift from spend changes and package clear incrementality reads for marketers.", "Recommended operating model: ship a small API, add observability, validate outputs with stakeholder review, and monitor the top business KPI every week.", "Typical stakeholders include analytics, operations, product, and leadership teams working on incrementality, marketing, causal."], "dashboard_metrics": [{"label": "North Star", "value": "83", "delta": "+7.1%"}, {"label": "Variance", "value": "15%", "delta": "-1.8%"}, {"label": "Decision Cycle", "value": "4d", "delta": "-0.5d"}]}</script>
           <script src="./app.js"></script>
         </body>
         </html>
