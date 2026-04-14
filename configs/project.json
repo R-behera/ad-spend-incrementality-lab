@@ -1,0 +1,48 @@
+{
+  "slug": "ad-spend-incrementality-lab",
+  "title": "Ad Spend Incrementality Lab",
+  "project_type": "analytics",
+  "domain": "Marketing Science",
+  "summary": "Estimate true lift from spend changes and package clear incrementality reads for marketers.",
+  "tags": [
+    "incrementality",
+    "marketing",
+    "causal"
+  ],
+  "accent": "#577590",
+  "dashboard_metrics": [
+    {
+      "label": "North Star",
+      "value": "83",
+      "delta": "+7.1%"
+    },
+    {
+      "label": "Variance",
+      "value": "15%",
+      "delta": "-1.8%"
+    },
+    {
+      "label": "Decision Cycle",
+      "value": "4d",
+      "delta": "-0.5d"
+    }
+  ],
+  "sample_features": {
+    "current_conversion": 0.18,
+    "baseline_conversion": 0.12,
+    "volume": 1850,
+    "segment": "paid_users"
+  },
+  "sample_metrics": {
+    "acquisition": 38.8,
+    "activation": 39.0,
+    "retention": 51.6,
+    "revenue": 82.6
+  },
+  "knowledge_base": [
+    "Ad Spend Incrementality Lab is positioned as a Marketing Science starter that emphasizes fast iteration, clear documentation, and production-friendly interfaces.",
+    "The primary value proposition is: Estimate true lift from spend changes and package clear incrementality reads for marketers.",
+    "Recommended operating model: ship a small API, add observability, validate outputs with stakeholder review, and monitor the top business KPI every week.",
+    "Typical stakeholders include analytics, operations, product, and leadership teams working on incrementality, marketing, causal."
+  ]
+}
